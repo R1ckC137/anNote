@@ -1,0 +1,28 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Write anNote
+{% endblock title %}
+
+{% block container %}
+<div class="">
+    <form method="post" action="{% url 'main:main' %}">
+    {% csrf_token %}
+        {{ write_form.annote }}
+        <div class="center">
+            <button class="center btn btn-primary" type="submit" name="create">Create anNote</button>
+        </div>
+    </form>
+    <form method="post" action="{% url 'main:main' %}">
+    {% csrf_token %}
+        {{ read_form.link }}
+        <div class="center">
+            <button class="center btn btn-primary" type="submit" name="read">Read anNote</button>
+        </div>
+         <div class="center">
+            <span class="center">{{ error }}</span>
+        </div>
+    </form>
+</div>
+{% endblock container %}
